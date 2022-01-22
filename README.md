@@ -7,9 +7,7 @@ npx install-peerdeps --dev @imaginary-cloud/eslint-config-react
 
 --> After installing @imaginary-cloud/eslint-config-react configuration, add the next two lines to the package.json file
 
-```json
-"eslintConfig": {
-   "extends": "@imaginary-cloud/react"
-},
-"prettier": "@imaginary-cloud/prettier-config"
-```
+`npm run lint` : shows errors
+`npm run lint:fix` : auto fix errors
+
+`npm run format` will format the code style of all JavaScript files
