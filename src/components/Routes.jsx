@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
 // Lib imports
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 
 // Component imports
-import Customers from '../pages/Customers';
-import Dashboard from '../pages/Dashboard';
+import Customers from "../pages/Customers";
+import Dashboard from "../pages/Dashboard";
 
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/" component={Dashboard} />
+      <Route path="/" exact component={Dashboard} />
       <Route path="/customers" component={Customers} />
     </Switch>
   );
