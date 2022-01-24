@@ -1,8 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./topnav.css";
 
 import Dropdown from "../dropdown/Dropdown";
+import RenderNotification from "./notifications/RenderNotification";
+import RenderUserToggle from "./user/RenderUserToggle";
+import RenderUserMenu from "./user/RenderUserMenu";
+
+import notifications from "../../assets/JsonData/notification.json";
+import user_image from "../../assets/images/user_avatar.png";
+import user_menu from "../../assets/JsonData/user_menus.json";
+
+const curr_user = {
+  display_name: "NTH - Joda",
+  image: user_image,
+};
 
 const Topnav = () => {
   return (
@@ -14,13 +27,30 @@ const Topnav = () => {
       <div className="topnav__right">
         <div className="topnav__right-item">
           {/* TODO: Dropdown */}
-          <Dropdown />
+          <Dropdown
+            customToggle={() => <RenderUserToggle user={curr_user} />}
+            contentData={user_menu}
+            renderItems={(item, index) => (
+              <RenderUserMenu item={item} index={index} />
+            )}
+          />
         </div>
         <div className="topnav__right-item">
           {/* TODO: Dropdown */}
-          <Dropdown />
+          <Dropdown
+            icon="bx bx-bell"
+            badge="12"
+            contentData={notifications}
+            renderItems={(item, index) => (
+              <RenderNotification item={item} index={index} />
+            )}
+            renderFooter={() => <Link to="/">View all</Link>}
+          />
         </div>
-        <div className="topnav__right-item">{/* TODO: Theme settings */}</div>
+        <div className="topnav__right-item">
+          {/* TODO: Theme settings */}
+          <Dropdown />{" "}
+        </div>
       </div>
     </div>
   );
