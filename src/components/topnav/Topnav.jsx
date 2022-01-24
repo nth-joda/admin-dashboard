@@ -49,7 +49,7 @@ const Topnav = () => {
         </div>
         <div className="topnav__right-item">
           {/* TODO: Theme settings */}
-          <Dropdown />{" "}
+          <Dropdown />
         </div>
       </div>
     </div>
