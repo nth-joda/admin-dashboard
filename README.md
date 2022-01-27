@@ -16,3 +16,15 @@ src: https://dev.to/knowankit/setup-eslint-and-prettier-in-react-app-357b
 # 1. Dev:
 
 `npm start`
+
+---
+
+học các properties css: position, display, ...
+
+::before
+
+.asdasd ~ .dasdasdas
+
+table
+
+overflow-x overflow-y
