@@ -26,3 +26,5 @@ học các properties css: position, display, ...
 .asdasd ~ .dasdasdas
 
 table
+
+overflow-x overflow-y

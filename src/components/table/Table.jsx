@@ -8,13 +8,13 @@ const Table = (props) => {
       <div className="table-wrapper">
         <table>
           {props.headData && props.renderHeader ? (
-            <thread>
+            <thead>
               <tr>
                 {props.headData.map((item, index) =>
                   props.renderHeader(item, index)
                 )}
               </tr>
-            </thread>
+            </thead>
           ) : null}
           {props.bodyData && props.renderBody ? (
             <tbody>
