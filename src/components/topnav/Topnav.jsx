@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./topnav.css";
 
 import Dropdown from "../dropdown/Dropdown";
+import ThemeMenu from "../thememenu/ThemeMenu";
 import RenderNotification from "./notifications/RenderNotification";
 import RenderUserToggle from "./user/RenderUserToggle";
 import RenderUserMenu from "./user/RenderUserMenu";
@@ -31,7 +32,7 @@ const Topnav = () => {
             customToggle={() => <RenderUserToggle user={curr_user} />}
             contentData={user_menu}
             renderItems={(item, index) => (
-              <RenderUserMenu item={item} index={index} />
+              <RenderUserMenu item={item} index={index} key={index} />
             )}
           />
         </div>
@@ -42,14 +43,14 @@ const Topnav = () => {
             badge="12"
             contentData={notifications}
             renderItems={(item, index) => (
-              <RenderNotification item={item} index={index} />
+              <RenderNotification item={item} index={index} key={index} />
             )}
             renderFooter={() => <Link to="/">View all</Link>}
           />
         </div>
         <div className="topnav__right-item">
           {/* TODO: Theme settings */}
-          <Dropdown />
+          <ThemeMenu />
         </div>
       </div>
     </div>
