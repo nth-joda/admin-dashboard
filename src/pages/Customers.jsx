@@ -31,7 +31,7 @@ const Customers = () => {
   return (
     <div>
       <h2 className="page-header">customer</h2>{" "}
-      <row>
+      <div className="row">
         <div className="col-12">
           <div className="card">
             <div className="card__body">
@@ -45,7 +45,7 @@ const Customers = () => {
             </div>
           </div>
         </div>
-      </row>
+      </div>
     </div>
   );
 };
