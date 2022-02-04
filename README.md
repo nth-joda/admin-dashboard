@@ -28,3 +28,5 @@ học các properties css: position, display, ...
 table
 
 overflow-x overflow-y
+
+disatch, redux, useSelector, useEffect

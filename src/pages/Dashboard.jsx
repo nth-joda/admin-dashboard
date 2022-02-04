@@ -1,6 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import statusCards from "../assets/JsonData/status-card-data.json";
 
@@ -133,7 +134,7 @@ const orderStatus = {
 const renderOrderHead = (item, index) => <th key={index}>{item}</th>;
 
 const renderOrderBody = (item, index) => (
-  <tr>
+  <tr key={index}>
     <td>{item.id}</td>
     <td>{item.user}</td>
     <td>{item.price}</td>
@@ -145,6 +146,8 @@ const renderOrderBody = (item, index) => (
 );
 
 const Dashboard = () => {
+  const themeReducer = useSelector((state) => state.ThemeReducer.mode);
+
   return (
     <div>
       <h2 className="page-header">Dashboard</h2>
@@ -152,10 +155,9 @@ const Dashboard = () => {
         <div className="col-6">
           <div className="row">
             {statusCards.map((item, index) => (
-              <div className="col-6">
+              <div className="col-6" key={index}>
                 <StatusCard
                   icon={item.icon}
-                  key={index}
                   title={item.title}
                   count={item.count}
                 />
@@ -166,7 +168,17 @@ const Dashboard = () => {
         <div className="col-6">
           <div className="card full-height">
             <Chart
-              options={chartOptions.options}
+              options={
+                themeReducer === "theme-mode-dark"
+                  ? {
+                      ...chartOptions.options,
+                      theme: { mode: "dark" },
+                    }
+                  : {
+                      ...chartOptions.options,
+                      theme: { mode: "light" },
+                    }
+              }
               series={chartOptions.series}
               type="line"
               height="100%"
