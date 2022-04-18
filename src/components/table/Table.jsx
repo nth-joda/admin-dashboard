@@ -60,6 +60,7 @@ const Table = (props) => {
               onClick={() => {
                 selectPage(index);
               }}
+              key={index}
             >
               {item + 1}
             </div>
